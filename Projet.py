@@ -36,33 +36,8 @@ while(True):
                 "image":image,
                 "detail":detail,
             }
-            with open('jeuxvidéo.json', 'r') as file:
-                library=json.load(file)
-            library.append(Jeux)
-            with open('jeuxvidéo.json', 'w') as file:
-                json.dump(library, file, indent=4)
-        if (choice == "2"):
-            with open("magasin.json","r") as file:
-                library = json.load(file)
-            library.append(Jeux)
-            if Jeux in library:
-                library[Jeux] = []
-                for index, Jeux in enumerate(library):
-                     print(str(index) + "," + Jeux["nom"])
-                choicejeux = int(input('Veuillez donnez un titre :'))                
-                with open('magasin.json', 'w') as file:
-                    json.dump(library, file, indent=4)
-                    Jeux.pop(index)
-            print("Un jeu a été supprimé.") 
-        if (choice == "3"):
-            f = open('magasin.json', 'r')
-            for i in f.readlines():
-                print(i.strip())
-        if (choice == "4"):
             with open('magasin.json', 'r') as file:
                 library=json.load(file)
-        for index, jeux in enumerate(library):
-            print(str(index) + "," + jeux["nom"])
-        choicejeux = int(input("Choisissez : "))
-        jeux = library[choicejeux]
-        input(f'{detail}')
+            library.append(Jeux)
+            with open('magasin.json', 'w') as file:
+                json.dump(library, file, indent=4)
