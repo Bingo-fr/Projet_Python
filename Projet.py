@@ -46,7 +46,9 @@ while(True):
                 library=json.load(file)
             for index, jeux in enumerate(library):
                 print(str(index) + "," + jeux["nom"])
-            choicejeux = int(input("Veuillez donnez un titre : "))
+            choicejeux = int(input("Veuillez donnez un chiffre : "))
             jeux = library[choicejeux]
             del library[choicejeux]
             print(f'le jeu : {nom} à été supprimé')
+
+
