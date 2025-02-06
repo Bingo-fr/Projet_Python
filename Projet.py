@@ -30,7 +30,7 @@ while(True):
             image = input("Image :")
             detail = input("detail : ")
 
-            Jeux={
+            jeux={
                 "nom": nom,
                 "tag": tag,
                 "image":image,
@@ -38,6 +38,15 @@ while(True):
             }
             with open('magasin.json', 'r') as file:
                 library=json.load(file)
-            library.append(Jeux)
+            library.append(jeux)
             with open('magasin.json', 'w') as file:
                 json.dump(library, file, indent=4)
+        if (choice == "2"):
+            with open('magasin.json', 'r') as file:
+                library=json.load(file)
+            for index, jeux in enumerate(library):
+                print(str(index) + "," + jeux["nom"])
+            choicejeux = int(input("Veuillez donnez un titre : "))
+            jeux = library[choicejeux]
+            del library[choicejeux]
+            print(f'le jeu : {nom} à été supprimé')
