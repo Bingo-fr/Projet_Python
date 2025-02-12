@@ -56,5 +56,15 @@ while(True):
             with open('magasin.json', 'r') as file:
                 library=json.load(file)
                 for i in library:
-                     print(f"{i['title']} de {i['autor']} avec son résumé qui parle de {i['resume']}")
-        if (choice =="4"):
+                     print(f"{i['nom']} description : {i['detail']}")
+        if (choice == "4"):
+            with open('magasin.json', 'r', encoding="utf-8") as file:
+                library = json.load(file)
+                for index, jeux in enumerate(library):
+                    print(str(index) + "," + jeux["nom"])
+                nom = str(input("Entrez un chiffre : "))
+                for jeu in library:
+                    if jeu["nom"]==nom.lower():
+                        print(jeu["detail"])
+
+
