@@ -62,9 +62,7 @@ while(True):
                 library = json.load(file)
                 for index, jeux in enumerate(library):
                     print(str(index) + "," + jeux["nom"])
-                nom = str(input("Entrez un chiffre : "))
-                for jeu in library:
-                    if jeu["nom"]==nom.lower():
-                        print(jeu["detail"])
+                nom = int(input("Entrez un chiffre : "))
+                print(library[nom]["detail"])
 
 
