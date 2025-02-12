@@ -57,3 +57,4 @@ while(True):
                 library=json.load(file)
                 for i in library:
                      print(f"{i['title']} de {i['autor']} avec son résumé qui parle de {i['resume']}")
+        if (choice =="4"):
