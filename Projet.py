@@ -49,11 +49,11 @@ while(True):
             choicejeux = int(input("Veuillez donnez le chiffre : "))
             jeux = library[choicejeux]
             del library[choicejeux]
-            print(f'le jeu : {jeux} à été supprimé')
+            print(f'le jeu : {[jeux]} à été supprimé')
             with open('magasin.json', 'w') as file:
                 json.dump(library, file, indent=4)
         if (choice == "3"):
             with open('magasin.json', 'r') as file:
                 library=json.load(file)
                 for i in library:
-                     print(f"{i['title']} de {i['autor']} avec son résumé qui parle de {i['resume']}")
+                     print(f"{i['nom']}")
