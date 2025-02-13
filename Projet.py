@@ -80,10 +80,11 @@ while(True):
                 "detail":detail,
                 "prix":prix,
             }
-            with open('jeux.json', 'r') as file:
+            input(str("Votre jeu a bien été ajouté ! "))
+            with open('ventes.json', 'r') as file:
                 library=json.load(file)
             library.append(jeux)
-            with open('jeux.json', 'w') as file:
+            with open('ventes.json', 'w') as file:
                 json.dump(library, file, indent=4)
 
         if (choice == "6"):
@@ -94,4 +95,3 @@ while(True):
         print("2. Supprimer un jeu : ")
         print("3. Acheter un jeu : ")
         print("4. Quitter ")
-        if (choice == "1"):
