@@ -36,24 +36,37 @@ while(True):
                 "image":image,
                 "detail":detail,
             }
-            with open('magasin.json', 'r') as file:
+            with open('bibliotheque.json', 'r') as file:
                 library=json.load(file)
             library.append(jeux)
-            with open('magasin.json', 'w') as file:
+            with open('bibliotheque.json', 'w') as file:
                 json.dump(library, file, indent=4)
         if (choice == "2"):
-            with open('magasin.json', 'r') as file:
+            with open('bibliotheque.json', 'r') as file:
                 library=json.load(file)
             for index, jeux in enumerate(library):
                 print(str(index) + "," + jeux["nom"])
             choicejeux = int(input("Veuillez donnez le chiffre : "))
             jeux = library[choicejeux]
             del library[choicejeux]
-            print(f'le jeu : {[jeux]} à été supprimé')
-            with open('magasin.json', 'w') as file:
+            print(f'le jeu : {jeux} à été supprimé')
+            with open('bibliotheque.json', 'w') as file:
                 json.dump(library, file, indent=4)
         if (choice == "3"):
-            with open('magasin.json', 'r') as file:
+            with open('bibliotheque.json', 'r') as file:
                 library=json.load(file)
                 for i in library:
-                     print(f"{i['nom']}")
+                     print(f"{i['nom']} description : {i['detail']}")
+        if (choice == "4"):
+            with open('bibliotheque.json', 'r', encoding="utf-8") as file:
+                library = json.load(file)
+                for index, jeux in enumerate(library):
+                    print(str(index) + "," + jeux["nom"])
+                nom = int(input("Entrez un chiffre : "))
+                print(library[nom]["detail"])
+
+    if (choice == "2"):
+        print("1. Afficher la liste des jeux en vente : ")
+        print("2. Supprimer un jeu : ")
+        print("3. Afficher la liste de tous les jeux : ")
+        print("4. Afficher le détail d'un jeu : ")
