@@ -23,6 +23,8 @@ while(True):
         print("2. Supprimer un jeu : ")
         print("3. Afficher la liste de tous les jeux : ")
         print("4. Afficher le détail d'un jeu : ")
+        print("5. ")
+        print("6. Retour")
         choice = input()
         if (choice == "1"):
             nom = input("Nom :")
@@ -36,13 +38,13 @@ while(True):
                 "image":image,
                 "detail":detail,
             }
-            with open('bibliotheque.json', 'r') as file:
+            with open('jeux.json', 'r') as file:
                 library=json.load(file)
             library.append(jeux)
-            with open('bibliotheque.json', 'w') as file:
+            with open('jeux.json', 'w') as file:
                 json.dump(library, file, indent=4)
         if (choice == "2"):
-            with open('bibliotheque.json', 'r') as file:
+            with open('jeux.json', 'r') as file:
                 library=json.load(file)
             for index, jeux in enumerate(library):
                 print(str(index) + "," + jeux["nom"])
@@ -50,23 +52,46 @@ while(True):
             jeux = library[choicejeux]
             del library[choicejeux]
             print(f'le jeu : {jeux} à été supprimé')
-            with open('bibliotheque.json', 'w') as file:
+            with open('jeux.json', 'w') as file:
                 json.dump(library, file, indent=4)
         if (choice == "3"):
-            with open('bibliotheque.json', 'r') as file:
+            with open('jeux.json', 'r') as file:
                 library=json.load(file)
-                for i in library:
-                     print(f"{i['nom']} description : {i['detail']}")
+                for index, jeux in enumerate(library):
+                    print(str(index +1) + "," + jeux["nom"])
         if (choice == "4"):
-            with open('bibliotheque.json', 'r', encoding="utf-8") as file:
+            with open('jeux.json', 'r', encoding="utf-8") as file:
                 library = json.load(file)
                 for index, jeux in enumerate(library):
-                    print(str(index) + "," + jeux["nom"])
+                    print(str(index +1) + "," + jeux["nom"])
                 nom = int(input("Entrez un chiffre : "))
-                print(library[nom]["detail"])
+                print(library[nom -1]["detail"])
+        if (choice == "5"):
+            nom = input("Nom :")
+            tag = input("Tag :")
+            image = input("Image :")
+            detail = input("detail : ")
+            prix = input("prix : ")
 
-    if (choice == "3"):
+            jeux={
+                "nom": nom,
+                "tag": tag,
+                "image":image,
+                "detail":detail,
+                "prix":prix,
+            }
+            with open('jeux.json', 'r') as file:
+                library=json.load(file)
+            library.append(jeux)
+            with open('jeux.json', 'w') as file:
+                json.dump(library, file, indent=4)
+
+        if (choice == "6"):
+            pass
+
+    if (choice == "2"):
         print("1. Afficher la liste des jeux en vente : ")
         print("2. Supprimer un jeu : ")
-        print("3. Afficher la liste de tous les jeux : ")
-        print("4. Afficher le détail d'un jeu : ")
+        print("3. Acheter un jeu : ")
+        print("4. Quitter ")
+        if (choice == "1"):
