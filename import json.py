@@ -26,10 +26,18 @@ while (True):
     print("4.Répondre au commentaire")
     choice = input ("Votre choix :")
     if (choice == "1"):
-        with open("jeux.json", "r") as file:
+        with open('jeux.json', 'r') as file:
             library=json.load(file)
-        library.append(jeux)
         for index, jeux in enumerate(library):
-            print(str(index) + "," + jeux["nom"])
-        choicejeux = int(input("Veuillez donnez le chiffre : "))
-        jeux = library[choicejeux]
+                print(str(index) + "," + jeux["nom"])
+        choicejeux = int(input("Selectionner un jeu : "))
+        with open("notations.json", "r", encoding="utf-8") as f:
+            notations = json.load(f)
+            commentaire = input("Votre commentaire :")
+            note = input("note :")
+        Note = {
+                "commentaire": commentaire,
+                "note": note,
+        }
+        with open('notation.json', 'w') as file:
+                json.dump(library, file, indent=4)
