@@ -17,13 +17,6 @@
         "nom": "Street Fighter 6",
         "tag": "Jeux de Combat",
         "image": "png",
-        "detail": "png",
-        "prix": "& C:/Users/carlo/AppData/Local/Programs/Python/Python313/python.exe c:/Users/carlo/Documents/Git/Projet_Python/Projet.py"
-    },
-    {
-        "nom": "Street Fighter 6",
-        "tag": "Jeux de Combat",
-        "image": "png",
         "detail": "Street Fighter 6 est le dernier opus de la l\u00e9gendaire franchise de jeux de combat d\u00e9velopp\u00e9e et \u00e9dit\u00e9e par Capcom. Sorti le 2 juin 2023, il est disponible sur PlayStation 4, PlayStation 5, Xbox Series X/S et PC. Ce nouvel \u00e9pisode marque une \u00e9volution majeure avec un nouveau moteur graphique, des modes de jeu innovants et un gameplay modernis\u00e9.",
         "prix": "59.99 Euro"
     },
@@ -63,3 +56,4 @@
         "prix": "57,68 Euro "
     }
 ]
+

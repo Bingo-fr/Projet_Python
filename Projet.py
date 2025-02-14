@@ -47,11 +47,11 @@ while(True):
             with open('jeux.json', 'r') as file:
                 library=json.load(file)
             for index, jeux in enumerate(library):
-                print(str(index) + "," + jeux["nom"])
-            choicejeux = int(input("Veuillez donnez le chiffre : "))
+                print(str(index +1) + "," + jeux["nom"])
+            choicejeux = int(input("Veuillez donnez le chiffre : "))-1
             jeux = library[choicejeux]
             del library[choicejeux]
-            print(f'le jeu : {jeux} à été supprimé')
+            print(f'le jeu : {jeux} a été supprimé')
             with open('jeux.json', 'w') as file:
                 json.dump(library, file, indent=4)
         if (choice == "3"):
@@ -93,14 +93,24 @@ while(True):
 
     if (choice == "2"):
         print("1. Afficher la liste des jeux en vente : ")
-        print("2. Supprimer un jeu : ")
-        print("3. Acheter un jeu : ")
-        print("4. Quitter ")
+        print("2. Acheter un jeu : ")
+        print("3. Retour ")
         choice = input()
         if (choice == "1"):
             with open('ventes.json', 'r', encoding="utf-8") as file:
                 library=json.load(file)
                 for index, jeux in enumerate(library):
-                    print(f"{index+1}. Nom : {jeux['nom']}, Tag : {jeux['tag']}, Image : {jeux['image']}, detail : {jeux['detail']}, Prix {jeux['prix']}")
-
+                    print(f"{index+1} Nom : {jeux['nom']}, Tag : {jeux['tag']}, Image : {jeux['image']}, detail : {jeux['detail']}, Prix {jeux['prix']}")
+        if (choice == "2"):
+                with open('ventes.json', 'r', encoding="utf-8") as file:
+                    library = json.load(file)
+                for index, jeux in enumerate(library):
+                    print(str(index +1) + "," + jeux["nom"])
+                choicejeux = int(input("Entrez le chiffre correspondant au jeu que vous voulez acquérir : "))-1
+                jeux = library[choicejeux]
+                print(f'le jeu : {library[choicejeux]["nom"]} a été acheté')
+                with open('bibliotheque_l.json', 'w') as file:
+                    json.dump(jeux, file, indent=4)
+        if (choice == "3"):
+            pass
 
