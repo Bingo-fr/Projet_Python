@@ -32,5 +32,4 @@ while (True):
         for index, jeux in enumerate(library):
             print(str(index) + "," + jeux["nom"])
         choicejeux = int(input("Veuillez donnez le chiffre : "))
-        jeux = library[choicejeux] 
-        with open
+        jeux = library[choicejeux]
