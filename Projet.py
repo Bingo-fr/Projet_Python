@@ -58,7 +58,7 @@ while(True):
             with open('jeux.json', 'r') as file:
                 library=json.load(file)
                 for index, jeux in enumerate(library):
-                    print(str(index +1) + "," + jeux["nom"])
+                    print(str(index +1) + "." + jeux["nom"])
         if (choice == "4"):
             with open('jeux.json', 'r', encoding="utf-8") as file:
                 library = json.load(file)
@@ -80,6 +80,7 @@ while(True):
                 "detail":detail,
                 "prix":prix,
             }
+
             print("Votre jeu a bien été ajouté ! ")
             with open('ventes.json', 'r') as file:
                 library=json.load(file)
@@ -95,3 +96,11 @@ while(True):
         print("2. Supprimer un jeu : ")
         print("3. Acheter un jeu : ")
         print("4. Quitter ")
+        choice = input()
+        if (choice == "1"):
+            with open('ventes.json', 'r', encoding="utf-8") as file:
+                library=json.load(file)
+                for index, jeux in enumerate(library):
+                    print(f"index = {index+1}, Nom : {jeux['nom']}, Tag : {jeux['tag']}, Image : {jeux['image']}, detail : {jeux['detail']}, Prix {jeux['prix']})
+
+

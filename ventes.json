@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "nom": "Test",
+        "tag": "test",
+        "image": "test",
+        "detail": "test",
+        "prix": "test"
+    }
+]
