@@ -101,6 +101,6 @@ while(True):
             with open('ventes.json', 'r', encoding="utf-8") as file:
                 library=json.load(file)
                 for index, jeux in enumerate(library):
-                    print(f"index = {index+1}, Nom : {jeux['nom']}, Tag : {jeux['tag']}, Image : {jeux['image']}, detail : {jeux['detail']}, Prix {jeux['prix']})
+                    print(f"{index+1}. Nom : {jeux['nom']}, Tag : {jeux['tag']}, Image : {jeux['image']}, detail : {jeux['detail']}, Prix {jeux['prix']}")
 
 
