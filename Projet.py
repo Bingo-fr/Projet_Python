@@ -24,7 +24,8 @@ while(True):
         print("3. Afficher la liste de tous les jeux : ")
         print("4. Afficher le détail d'un jeu : ")
         print("5. Ajouter un jeu au magasin : ")
-        print("6. Retour")
+        print("6. Ajouter un commentaire et une note : ")
+        print("7. Retour")
         choice = input()
         if (choice == "1"):
             nom = input("Nom :")
@@ -87,8 +88,10 @@ while(True):
             library.append(jeux)
             with open('ventes.json', 'w') as file:
                 json.dump(library, file, indent=4)
-
         if (choice == "6"):
+            
+
+        if (choice == "7"):
             pass
 
     if (choice == "2"):
