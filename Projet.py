@@ -141,10 +141,15 @@ while(True):
                 for index, jeux in enumerate(library):
                     print(str(index +1) + "," + jeux["nom"])
                 choicejeux = int(input("Entrez le chiffre correspondant au jeu que vous voulez acquérir : "))-1
-                jeux = library[choicejeux]
+                jeu = library[choicejeux]
+                biblio = []
+                biblio.append(jeu)
                 print(f'le jeu : {library[choicejeux]["nom"]} a été acheté')
-                with open('bibliotheque_l.json', 'w') as file:
-                    json.dump(jeux, file, indent=4)
+                file = open('bibliotheque_l.json', 'w')
+                json.dump(biblio, file, indent=4)
+                file.close()
+                print()
         if (choice == "3"):
             pass
+
 
