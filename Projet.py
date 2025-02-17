@@ -92,7 +92,7 @@ while(True):
              with open('bibliotheque_l.json', 'r') as file:
                 library=json.load(file)
                 for index, jeux in enumerate(library):
-                    library[index]["nom"]
+                    print(library[index]["nom"])
                 jeu = input("Entrez le chiffre du jeu : ")
 
 
@@ -136,19 +136,31 @@ while(True):
                 for index, jeux in enumerate(library):
                     print(f"{index+1} Nom : {jeux['nom']}, Tag : {jeux['tag']}, Image : {jeux['image']}, detail : {jeux['detail']}, Prix {jeux['prix']}")
         if (choice == "2"):
-                with open('ventes.json', 'r', encoding="utf-8") as file:
-                    library = json.load(file)
-                for index, jeux in enumerate(library):
-                    print(str(index +1) + "," + jeux["nom"])
-                choicejeux = int(input("Entrez le chiffre correspondant au jeu que vous voulez acquérir : "))-1
-                jeu = library[choicejeux]
-                biblio = []
-                biblio.append(jeu)
-                print(f'le jeu : {library[choicejeux]["nom"]} a été acheté')
-                file = open('bibliotheque_l.json', 'w')
-                json.dump(biblio, file, indent=4)
-                file.close()
-                print()
+            with open('ventes.json', 'r', encoding="utf-8") as file:
+                library = json.load(file)
+
+        for index, jeux in enumerate(library):
+            print(str(index + 1) + "," + jeux["nom"])
+
+        choicejeux = int(input("Entrez le chiffre correspondant au jeu que vous voulez acquérir : ")) - 1
+        jeu = library[choicejeux]
+
+        biblio = [] 
+        biblio.append(jeu)
+
+        try:
+            with open('bibliotheque_l.json', 'r', encoding='utf-8') as file:
+                bibliotheque = json.load(file)
+        except FileNotFoundError:
+            bibliotheque = [] 
+
+        bibliotheque.append(jeu)
+
+        with open('bibliotheque_l.json', 'w', encoding='utf-8') as file:
+            json.dump(bibliotheque, file, indent=4)
+
+        print(f'Le jeu : {jeu["nom"]} a été ajouté à votre bibliothèque.')
+
         if (choice == "3"):
             pass
 
