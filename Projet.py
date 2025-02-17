@@ -89,37 +89,42 @@ while(True):
             with open('ventes.json', 'w') as file:
                 json.dump(library, file, indent=4)
         if (choice == "6"):
-             with open('bibliotheque_l.json', 'r') as file:
-                library=json.load(file)
-                for index, jeux in enumerate(library):
-                    print(library[index]["nom"])
-                jeu = input("Entrez le chiffre du jeu : ")
+            with open('bibliotheque_l.json', 'r', encoding='utf-8') as file:
+                library = json.load(file)
 
+            for jeux in library:
+                print(jeux["nom"])
 
-        while True:
+            jeu = input("Entrez le nom du jeu : ")
+
+            while True:
+                try:
+                    note = int(input(f"Attribuez une note à {jeu} (entre 1 et 5) : "))
+                    if 1 <= note <= 5:
+                        break
+                    else:
+                        print("Erreur : Veuillez entrer un nombre entre 1 et 5.")
+                except ValueError:
+                    print("Erreur : Veuillez entrer un nombre valide.")
+
+            commentaire = input("Laissez un commentaire sur ce jeu : ")
+
+            avis = {
+                "jeu": jeu,
+                "note": note,
+                "commentaire": commentaire
+            }
+
             try:
-                note = int(input(f"Attribuez une note à {jeu} (entre 1 et 5) : "))
-                if 1 <= note <= 5:
-                    break
-                else:
-                    print("Erreur : Veuillez entrer un nombre entre 1 et 5.")
-            except ValueError:
-                print("Erreur : Veuillez entrer un nombre valide.")
-        
-        
-        commentaire = input("Laissez un commentaire sur ce jeu : ")
-        
-        avis = {
-            "jeu": jeu,
-            "note": note,
-            "commentaire": commentaire
-        }
-        
-        with open("avis_note.json", "w", encoding="utf-8") as file:
-            json.dump(avis, file, ensure_ascii=False)
-            file.write("\n")  
-        
-        print("\nMerci ! Votre avis a été enregistré avec succès. 🎮")
+                with open("avis_note.json", "a", encoding="utf-8") as file:
+                    json.dump(avis, file, ensure_ascii=False)
+                    file.write("\n") 
+            except FileNotFoundError:
+
+                with open("avis_note.json", "w", encoding="utf-8") as file:
+                    json.dump([avis], file, ensure_ascii=False, indent=4)
+
+            print("\nMerci ! Votre avis a été enregistré avec succès. 🎮")
         
         
         if (choice == "7"):
