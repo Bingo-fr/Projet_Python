@@ -144,29 +144,34 @@ while(True):
             with open('ventes.json', 'r', encoding="utf-8") as file:
                 library = json.load(file)
 
-        for index, jeux in enumerate(library):
-            print(str(index + 1) + "," + jeux["nom"])
+            for index, jeux in enumerate(library):
+                print(str(index + 1) + "," + jeux["nom"])
 
-        choicejeux = int(input("Entrez le chiffre correspondant au jeu que vous voulez acquérir : ")) - 1
-        jeu = library[choicejeux]
+            choicejeux = int(input("Entrez le chiffre correspondant au jeu que vous voulez acquérir : ")) - 1
+            jeu = library[choicejeux]
 
-        biblio = [] 
-        biblio.append(jeu)
+            biblio = [] 
+            biblio.append(jeu)
 
-        try:
-            with open('bibliotheque_l.json', 'r', encoding='utf-8') as file:
-                bibliotheque = json.load(file)
-        except FileNotFoundError:
-            bibliotheque = [] 
+            try:
+                with open('bibliotheque_l.json', 'r', encoding='utf-8') as file:
+                    bibliotheque = json.load(file)
+            except FileNotFoundError:
+                bibliotheque = [] 
 
-        bibliotheque.append(jeu)
+            bibliotheque.append(jeu)
 
-        with open('bibliotheque_l.json', 'w', encoding='utf-8') as file:
-            json.dump(bibliotheque, file, indent=4)
+            with open('bibliotheque_l.json', 'w', encoding='utf-8') as file:
+                json.dump(bibliotheque, file, indent=4)
 
-        print(f'Le jeu : {jeu["nom"]} a été ajouté à votre bibliothèque.')
+            print(f'Le jeu : {jeu["nom"]} a été ajouté à votre bibliothèque.')
 
         if (choice == "3"):
             pass
+
+        choice=0
+
+    if (choice == "3"):
+        break
 
 

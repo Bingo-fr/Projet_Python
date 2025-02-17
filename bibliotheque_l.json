@@ -12,5 +12,12 @@
         "image": "png",
         "detail": ": Sea of Thieves est un jeu d\u2019action-aventure multijoueur d\u00e9velopp\u00e9 par Rare et \u00e9dit\u00e9 par Xbox Game Studios. Sorti en 2018 sur Xbox One et PC (Windows), il propose une exp\u00e9rience en monde ouvert o\u00f9 les joueurs incarnent des pirates explorant les mers, cherchant des tr\u00e9sors, combattant d'autres \u00e9quipages et affrontant des cr\u00e9atures mythiques.",
         "prix": "39.99 Euro"
+    },
+    {
+        "nom": "Fallout",
+        "tag": "FPS, Aventure",
+        "image": "png",
+        "detail": ": Fallout est une franchise de jeux de r\u00f4le et d'action se d\u00e9roulant dans un univers post-apocalyptique inspir\u00e9 des ann\u00e9es 1950, o\u00f9 la guerre nucl\u00e9aire a ravag\u00e9 la Terre. Cr\u00e9\u00e9e par Interplay Entertainment en 1997, la saga est aujourd'hui d\u00e9velopp\u00e9e par Bethesda.",
+        "prix": "9.99 Euro"
     }
 ]
